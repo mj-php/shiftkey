@@ -35,7 +35,7 @@ Route::get('/user', function (Request $request) {
 
 // Mock endpoint to get all cars for the logged in user
 
-Route::get('/mock-get-cars', function (Request $request) {
+Route::get('/get-cars', function (Request $request) {
     $loggedUserId = Auth::user()->getAuthIdentifier();
     return new CarCollection(Car::where('user_id', $loggedUserId)->get());
 })->middleware('auth:api');
@@ -43,24 +43,24 @@ Route::get('/mock-get-cars', function (Request $request) {
 
 // Mock endpoint to add a new car.
 
-Route::post('mock-add-car', [CarController::class, 'store'])->middleware(['auth:api']);
+Route::post('add-car', [CarController::class, 'store'])->middleware(['auth:api']);
 
 
 // Mock endpoint to get a car with the given id
 
-Route::get('/mock-get-car/{id}', function (Request $request, $id) {
+Route::get('/get-car/{id}', function (Request $request, $id) {
     return response()->json(['data' => Car::find($id)]);
 })->middleware('auth:api');
 
 
 // Mock endpoint to delete a car with a given id
 
-Route::delete('mock-delete-car/{id}', [CarController::class, 'destroy'])->middleware('auth:api');
+Route::delete('delete-car/{id}', [CarController::class, 'destroy'])->middleware('auth:api');
 
 
 // Mock endpoint to get the trips for the logged in user
 
-Route::get('/mock-get-trips', function (Request $request) {
+Route::get('/get-trips', function (Request $request) {
 
     $loggedUserId = Auth::user()->getAuthIdentifier();
 
@@ -75,4 +75,4 @@ Route::get('/mock-get-trips', function (Request $request) {
 
 // Mock endpoint to add a new trip.
 
-Route::post('mock-add-trip', [TripController::class, 'store'])->middleware(['auth:api']);
+Route::post('add-trip', [TripController::class, 'store'])->middleware(['auth:api']);

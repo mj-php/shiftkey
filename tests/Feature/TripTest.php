@@ -37,7 +37,7 @@ class TripTest extends TestCase
             'miles' => 25.15,
         ];
 
-        $response = $this->actingAs($this->user,'api')->postJson('/api/mock-add-trip', $payload);
+        $response = $this->actingAs($this->user,'api')->postJson('/api/add-trip', $payload);
 
         //dd($response->getContent(),$response->getStatusCode());
 
@@ -61,7 +61,7 @@ class TripTest extends TestCase
             'miles' => 25.15,
         ];
 
-        $response = $this->actingAs($this->user,'api')->postJson('/api/mock-add-trip', $payload);
+        $response = $this->actingAs($this->user,'api')->postJson('/api/add-trip', $payload);
 
         //dd($response->getContent(),$response->getStatusCode());
 
@@ -85,7 +85,7 @@ class TripTest extends TestCase
             'miles' => 25.15,
         ];
 
-        $response = $this->postJson('/api/mock-add-trip', $payload);
+        $response = $this->postJson('/api/add-trip', $payload);
 
         //dd($response->getContent(),$response->getStatusCode());
 

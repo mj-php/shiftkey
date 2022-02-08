@@ -26,7 +26,7 @@ class CarTest extends TestCase
 
         $user = factory(User::class, 1)->create()->first();
 
-        $response = $this->actingAs($user, 'api')->postJson('/api/mock-add-car', $payload);
+        $response = $this->actingAs($user, 'api')->postJson('/api/add-car', $payload);
 
         //dd($response->getContent(),$response->getStatusCode());
 
@@ -50,7 +50,7 @@ class CarTest extends TestCase
 
         $user = factory(User::class, 1)->create()->first();
 
-        $response = $this->actingAs($user, 'api')->postJson('/api/mock-add-car', $payload);
+        $response = $this->actingAs($user, 'api')->postJson('/api/add-car', $payload);
 
         //dd($response->getContent(),$response->getStatusCode());
 
@@ -72,7 +72,7 @@ class CarTest extends TestCase
             'year' => 2005
         ];
 
-        $response = $this->postJson('/api/mock-add-car', $payload);
+        $response = $this->postJson('/api/add-car', $payload);
 
         //dd($response->getContent(),$response->getStatusCode());
 
@@ -98,7 +98,7 @@ class CarTest extends TestCase
         $car->year = '1999';
         $car->save();
 
-        $response = $this->actingAs($user, 'api')->get('/api/mock-get-car/' . $car->id);
+        $response = $this->actingAs($user, 'api')->get('/api/get-car/' . $car->id);
 
         //dd($response->getContent(),$response->getStatusCode());
 
